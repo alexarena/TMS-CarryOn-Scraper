@@ -12,14 +12,23 @@ request(url, (err, res, body)=> {
 
   let airlines = []
   for(let i=1; i<table[0].length; i++){
-    let tmp = {}
-    tmp.name = table[0][i]
-    tmp.height = Number(table[1][i])
-    tmp.width = Number(table[2][i])
-    tmp.depth = Number(table[3][i])
-    tmp.linear = Number(table[4][i])
-    tmp.weight = Number(table[5][i])
-    airlines.push(tmp)
+    airlines.push({
+      name: table[0][i],
+      imperial: {
+        height: Number(table[1][i]),
+        width:  Number(table[2][i]),
+        depth:  Number(table[3][i]),
+        linear: Number(table[4][i]),
+        weight: Number(table[5][i])
+      },
+      metric: {
+        height: Number(table[1][i])*2.54, //Inches -> Centimeters
+        width:  Number(table[2][i])*2.54,
+        depth:  Number(table[3][i])*2.54,
+        linear: Number(table[4][i])*2.54,
+        weight: Number(table[5][i])*0.453592 //Pounds -> Kilo
+      }
+    })
   }
   writeOut(airlines)
 })
