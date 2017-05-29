@@ -14,11 +14,11 @@ request(url, (err, res, body)=> {
   for(let i=1; i<table[0].length; i++){
     let tmp = {}
     tmp.name = table[0][i]
-    tmp.height = table[1][i]
-    tmp.width = table[2][i]
-    tmp.depth = table[3][i]
-    tmp.linear = table[4][i]
-    tmp.weight = table[5][i]
+    tmp.height = Number(table[1][i])
+    tmp.width = Number(table[2][i])
+    tmp.depth = Number(table[3][i])
+    tmp.linear = Number(table[4][i])
+    tmp.weight = Number(table[5][i])
     airlines.push(tmp)
   }
   writeOut(airlines)
