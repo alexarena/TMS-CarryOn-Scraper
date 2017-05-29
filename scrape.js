@@ -15,11 +15,11 @@ request(url, (err, res, body)=> {
     airlines.push({
       name: table[0][i],
       imperial: {
-        height: Number(table[1][i]),
+        height: Number(table[1][i]), //Inches
         width:  Number(table[2][i]),
         depth:  Number(table[3][i]),
         linear: Number(table[4][i]),
-        weight: Number(table[5][i])
+        weight: Number(table[5][i]) //Pounds
       },
       metric: {
         height: Number(table[1][i])*2.54, //Inches -> Centimeters
