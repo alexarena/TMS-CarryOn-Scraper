@@ -15,18 +15,18 @@ request(url, (err, res, body)=> {
     airlines.push({
       name: table[0][i],
       imperial: {
-        height: Number(table[1][i]), //Inches
-        width:  Number(table[2][i]),
-        depth:  Number(table[3][i]),
-        linear: Number(table[4][i]),
-        weight: Number(table[5][i]) //Pounds
+        height: +table[1][i], //Inches
+        width:  +table[2][i],
+        depth:  +table[3][i],
+        linear: +table[4][i],
+        weight: +table[5][i] //Pounds
       },
       metric: {
-        height: Number(table[1][i])*2.54, //Inches -> Centimeters
-        width:  Number(table[2][i])*2.54,
-        depth:  Number(table[3][i])*2.54,
-        linear: Number(table[4][i])*2.54,
-        weight: Number(table[5][i])*0.453592 //Pounds -> Kilo
+        height: +(+table[1][i]*2.54).toFixed(2), //Inches -> Centimeters
+        width:  +(+table[2][i]*2.54).toFixed(2),
+        depth:  +(+table[3][i]*2.54).toFixed(2),
+        linear: +(+table[4][i]*2.54).toFixed(2),
+        weight: +(+table[5][i]*0.453592).toFixed(2) //Pounds -> Kilo
       }
     })
   }
