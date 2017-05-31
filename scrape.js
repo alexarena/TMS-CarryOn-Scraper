@@ -22,11 +22,11 @@ request(url, (err, res, body)=> {
         weight: +table[5][i] //Pounds
       },
       metric: {
-        height: +(+table[1][i]*2.54).toFixed(2), //Inches -> Centimeters
-        width:  +(+table[2][i]*2.54).toFixed(2),
-        depth:  +(+table[3][i]*2.54).toFixed(2),
-        linear: +(+table[4][i]*2.54).toFixed(2),
-        weight: +(+table[5][i]*0.453592).toFixed(2) //Pounds -> Kilo
+        height: Math.ceil((+table[1][i]*2.54)), //Inches -> Centimeters
+        width:  Math.ceil((+table[2][i]*2.54)),
+        depth:  Math.ceil((+table[3][i]*2.54)),
+        linear: Math.ceil((+table[4][i]*2.54)),
+        weight: Math.ceil((+table[5][i]*0.453592)) //Pounds -> Kilo
       }
     })
   }
